@@ -24,4 +24,10 @@ SELECT * FROM veiculos;
 INSERT INTO salarios(faixa, inicio, fim)VALUES('Software Engineer',10000, 20000);
 INSERT INTO salarios(faixa, inicio, fim)VALUES('Recursos Humanos',1000, 2000);
 INSERT INTO salarios(faixa, inicio, fim)VALUES('Instrutor',2000, 3000);
-SELECT * FROM salarios;
+
+SELECT nome, salario FROM funcionarios;
+SELECT nome AS 'Funcionario', salario FROM funcionarios f WHERE f.salario > 20000;
+SELECT * FROM funcionarios WHERE nome = 'Alex'
+UNION 
+SELECT * FROM funcionarios WHERE id =5;
+/*5.1*/
