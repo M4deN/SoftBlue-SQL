@@ -118,5 +118,13 @@ INSERT INTO pedidos(descricao,valor)VALUES ('Máquina de Lavar',2500);
 
 SELECT * FROM pedidos;
 
+/*CHAMADA DA STORED PROCEDURES*/
+CALL Limpa_Pedidos();
 
+/*CRIAÇAO DE TRIGGER*/
+CREATE TRIGGER limpa_pedidos BEFORE INSERT ON estoque FOR EACH ROW
+CALL Limpa_Pedidos();
 
+INSERT INTO estoque(descricao,quantidade)VALUES('TV',10);
+UPDATE pedidos SET pago = 'Sim' WHERE id = 4;
+SELECT * FROM estoque;
