@@ -22,6 +22,21 @@ CREATE TABLE salarios(
     PRIMARY KEY(faixa)
 );
 
+CREATE TABLE cpfs(
+	id INT UNSIGNED NOT NULL,
+    cpf VARCHAR(14) NOT NULL,
+    PRIMARY KEY(id),
+    CONSTRAINT fk_cpf FOREIGN KEY(id) REFERENCES funcionarios(id)
+);
+
+CREATE TABLE clientes(
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    quem_indicou INT UNSIGNED,
+    PRIMARY KEY(id),
+    CONSTRAINT fk_quem_indicou FOREIGN KEY(quem_indicou) REFERENCES clientes(id)
+);
+
 ALTER TABLE funcionarios CHANGE COLUMN nome_func nome VARCHAR(50)NOT NULL;
 
 CREATE INDEX departamentos ON funcionarios(departamento);
