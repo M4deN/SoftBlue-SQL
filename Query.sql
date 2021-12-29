@@ -94,7 +94,23 @@ SELECT departamento, AVG(salario) FROM funcionarios GROUP BY departamento;
 SELECT departamento, AVG(salario) FROM funcionarios GROUP BY departamento HAVING AVG(salario) > 20000;
 SELECT departamento, COUNT(*)AS QUANTIDADE FROM funcionarios GROUP BY departamento;
 
+INSERT INTO contas_bancarias(titular,saldo)VALUES ('Alex',10000);
+INSERT INTO contas_bancarias(titular,saldo)VALUES ('Luis',20000);
 
+SELECT * FROM contas_bancarias;
+
+/*ASSEGURA QUE A TRANSAÇÃO ESTA PROTEGIDA, O COMMIT CONFIRMA A AÇÃO*/
+START TRANSACTION;
+UPDATE contas_bancarias SET saldo = saldo - 200 WHERE id = 1;
+UPDATE contas_bancarias SET saldo = saldo + 200 WHERE id = 2;
+COMMIT;
+
+
+/*REVERTE A TRANSAÇÃO EM CASO DE ALGUM IMPREVISTO*/
+START TRANSACTION;
+UPDATE contas_bancarias SET saldo = saldo - 200 WHERE id = 1;
+UPDATE contas_bancarias SET saldo = saldo + 200 WHERE id = 2;
+ROLLBACK;
 
 
 
