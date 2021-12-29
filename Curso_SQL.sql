@@ -36,6 +36,12 @@ CREATE TABLE clientes(
     PRIMARY KEY(id),
     CONSTRAINT fk_quem_indicou FOREIGN KEY(quem_indicou) REFERENCES clientes(id)
 );
+CREATE TABLE contas_bancarias(
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    titular VARCHAR(50) NOT NULL,
+    saldo DOUBLE NOT NULL,
+    PRIMARY KEY(id)
+)ENGINE = InnoDB;/*GARANTE O SUPORTE PARA TRANSAÇÕES ACID*/
 
 ALTER TABLE funcionarios CHANGE COLUMN nome_func nome VARCHAR(50)NOT NULL;
 
