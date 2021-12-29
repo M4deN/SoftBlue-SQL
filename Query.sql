@@ -112,6 +112,11 @@ UPDATE contas_bancarias SET saldo = saldo - 200 WHERE id = 1;
 UPDATE contas_bancarias SET saldo = saldo + 200 WHERE id = 2;
 ROLLBACK;
 
+INSERT INTO pedidos(descricao,valor)VALUES ('Notebook',4500);
+INSERT INTO pedidos(descricao,valor)VALUES ('Console',3500);
+INSERT INTO pedidos(descricao,valor)VALUES ('Máquina de Lavar',2500);
+
+SELECT * FROM pedidos;
 
 
 
