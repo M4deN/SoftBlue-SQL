@@ -17,6 +17,7 @@ UPDATE funcionarios SET salario = ROUND(salario * 1.1, 2);
 INSERT INTO veiculos(funcionario_id, veiculo, placa)VALUES(1, 'Carro', 'ABC-0001');
 INSERT INTO veiculos(funcionario_id, veiculo, placa)VALUES(2, 'MiniVan', 'ABC-0002');
 INSERT INTO veiculos(funcionario_id, veiculo, placa)VALUES(1, 'Motocicleta', 'ABC-0003');
+INSERT INTO veiculos(funcionario_id, veiculo, placa)VALUES(NULL, 'Van', 'ABC-0004');
 
 UPDATE veiculos SET funcionario_id = 5 WHERE id = 2;
 SELECT * FROM veiculos;
@@ -31,3 +32,32 @@ SELECT * FROM funcionarios WHERE nome = 'Alex'
 UNION 
 SELECT * FROM funcionarios WHERE id =5;
 /*5.1*/
+
+SELECT * FROM funcionarios f INNER JOIN veiculos ON funcionario_id = f.id;
+SELECT * FROM funcionarios f LEFT JOIN veiculos ON funcionario_id = f.id;
+SELECT * FROM funcionarios f RIGHT JOIN veiculos ON funcionario_id = f.id;
+SELECT * FROM funcionarios f LEFT JOIN veiculos ON funcionario_id = f.id
+UNION
+SELECT * FROM funcionarios f RIGHT JOIN veiculos ON funcionario_id = f.id;
+
+INSERT INTO cpfs(id,cpf)VALUES(1,'111.111.111-11');
+INSERT INTO cpfs(id,cpf)VALUES(2,'222.222.222-22');
+INSERT INTO cpfs(id,cpf)VALUES(3,'333.333.333-33');
+INSERT INTO cpfs(id,cpf)VALUES(4,'444.444.444-44');
+INSERT INTO cpfs(id,cpf)VALUES(5,'555.555.555-55');
+
+SELECT * FROM cpfs;
+
+SELECT * FROM funcionarios INNER JOIN cpfs ON funcionarios.id = cpfs.id;
+SELECT * FROM funcionarios INNER JOIN cpfs USING(id);
+
+INSERT INTO clientes(nome,quem_indicou)VALUES('André', NULL);
+INSERT INTO clientes(nome,quem_indicou)VALUES('Mariana', 1);
+INSERT INTO clientes(nome,quem_indicou)VALUES('Felipe', 2);
+INSERT INTO clientes(nome,quem_indicou)VALUES('Isabela', 3);
+
+SELECT * FROM clientes;
+SELECT a.nome AS CLIENTE, b.nome AS INDICADO FROM clientes a JOIN clientes b ON a.quem_indicou = b.id;
+
+
+
