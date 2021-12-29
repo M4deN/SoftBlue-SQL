@@ -62,7 +62,20 @@ SELECT a.nome AS CLIENTE, b.nome AS INDICADO FROM clientes a JOIN clientes b ON 
 SELECT * FROM funcionarios INNER JOIN veiculos ON funcionario_id = funcionarios.id
 INNER JOIN cpfs ON cpfs.id = funcionarios.id;
 
+/*CRIAÇÃO DE VISÃO*/
 CREATE VIEW funcionarios_salario AS SELECT * FROM funcionarios WHERE salario >= 20000;
 SELECT * FROM funcionarios_salario;
+
+SELECT COUNT(*) FROM funcionarios;
+SELECT COUNT(*) FROM funcionarios WHERE salario > 20000;
+SELECT COUNT(*) FROM funcionarios WHERE salario > 10000 AND departamento ='Software Engineer';
+SELECT SUM(salario) FROM funcionarios;
+SELECT SUM(salario) FROM funcionarios WHERE departamento = 'Software Engineer';
+SELECT AVG(salario) FROM funcionarios;
+SELECT AVG(salario) FROM funcionarios WHERE departamento = 'Software Engineer';
+SELECT MAX(salario) FROM funcionarios;
+SELECT MAX(salario) FROM funcionarios WHERE departamento = 'Software Engineer';
+SELECT MIN(salario) FROM funcionarios;
+
 
 
