@@ -52,6 +52,13 @@ CREATE TABLE pedidos(
     PRIMARY KEY(id)
 );
 
+CREATE TABLE estoque(
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    descricao VARCHAR(100) NOT NULL,
+    quantidade INT NOT NULL,
+    PRIMARY KEY(id)
+);
+
 ALTER TABLE funcionarios CHANGE COLUMN nome_func nome VARCHAR(50)NOT NULL;
 
 /*CRIAÇÃO DE INDICES*/
