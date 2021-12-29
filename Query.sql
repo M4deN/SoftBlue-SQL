@@ -69,17 +69,33 @@ SELECT * FROM funcionarios_salario;
 SELECT COUNT(*) FROM funcionarios;
 SELECT COUNT(*) FROM funcionarios WHERE salario > 20000;
 SELECT COUNT(*) FROM funcionarios WHERE salario > 10000 AND departamento ='Software Engineer';
+
 SELECT SUM(salario) FROM funcionarios;
 SELECT SUM(salario) FROM funcionarios WHERE departamento = 'Software Engineer';
+
 SELECT AVG(salario) FROM funcionarios;
 SELECT AVG(salario) FROM funcionarios WHERE departamento = 'Software Engineer';
+
 SELECT MAX(salario) FROM funcionarios;
 SELECT MAX(salario) FROM funcionarios WHERE departamento = 'Software Engineer';
+
 SELECT MIN(salario) FROM funcionarios;
+SELECT MIN(salario) FROM funcionarios WHERE departamento = 'Software Engineer';
+
 SELECT departamento FROM funcionarios;
 SELECT DISTINCT (departamento) FROM funcionarios;
 SELECT * FROM funcionarios ORDER BY nome;
 SELECT * FROM funcionarios ORDER BY salario DESC;
+
+SELECT * FROM funcionarios LIMIT 2 OFFSET 1;
+SELECT * FROM funcionarios LIMIT 1, 2;
+
+SELECT departamento, AVG(salario) FROM funcionarios GROUP BY departamento;
+SELECT departamento, AVG(salario) FROM funcionarios GROUP BY departamento HAVING AVG(salario) > 20000;
+SELECT departamento, COUNT(*) FROM funcionarios GROUP BY departamento;
+
+
+
 
 
 
