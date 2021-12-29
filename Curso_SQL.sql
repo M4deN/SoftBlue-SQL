@@ -46,9 +46,10 @@ CREATE TABLE contas_bancarias(
 
 ALTER TABLE funcionarios CHANGE COLUMN nome_func nome VARCHAR(50)NOT NULL;
 
+/*CRIAÇÃO DE INDICES*/
 CREATE INDEX departamentos ON funcionarios(departamento);
-
 CREATE INDEX nomes ON funcionarios(nome);
-
 CREATE INDEX placas ON veiculos(placa);
+CREATE INDEX cpf ON cpfs(cpf);
+CREATE INDEX cliente ON contas_bancarias(id);
 
