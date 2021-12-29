@@ -36,6 +36,7 @@ CREATE TABLE clientes(
     PRIMARY KEY(id),
     CONSTRAINT fk_quem_indicou FOREIGN KEY(quem_indicou) REFERENCES clientes(id)
 );
+
 CREATE TABLE contas_bancarias(
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     titular VARCHAR(50) NOT NULL,
