@@ -76,6 +76,10 @@ SELECT AVG(salario) FROM funcionarios WHERE departamento = 'Software Engineer';
 SELECT MAX(salario) FROM funcionarios;
 SELECT MAX(salario) FROM funcionarios WHERE departamento = 'Software Engineer';
 SELECT MIN(salario) FROM funcionarios;
+SELECT departamento FROM funcionarios;
+SELECT DISTINCT (departamento) FROM funcionarios;
+SELECT * FROM funcionarios ORDER BY nome;
+SELECT * FROM funcionarios ORDER BY salario DESC;
 
 
 
