@@ -68,7 +68,7 @@ SELECT * FROM cliente;
 SELECT * FROM pedido_compra;
 
 /*EXERCICIO 10*/
-SELECT T1.nome_vendedor AS "Vendedores", T2.nome_cliente AS "Clientes", T3.descricao_produto AS "Produto"
+SELECT T1.nome_vendedor AS "Vendedores", T2.nome_cliente AS "Clientes", T3.descricao_produto AS "Produto",DATE_FORMAT(T0.data_pedido,"%d/%m/%Y") AS "Data"
 FROM
 pedido_compra T0 INNER JOIN vendedor T1 ON T0.vendedor_id = T1.id_vendedor
 INNER JOIN cliente T2 ON T0.cliente_id = T2.id_cliente
